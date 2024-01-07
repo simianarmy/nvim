@@ -25,7 +25,7 @@ end
     -- Snippets
     {'L3MON4D3/LuaSnip'},
     {'rafamadriz/friendly-snippets'},
-    "github/copilot.vim",
+    --"github/copilot.vim",
     "laytan/cloak.nvim",
     {
         "christoomey/vim-tmux-navigator",
@@ -55,5 +55,17 @@ end
             vim.keymap.set('i', '<c-,>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true, silent = true })
             vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true, silent = true })
         end
-  }
+  },
+  {
+    -- Handle dotnet packages and references
+    "JesperLundberg/projektgunnar.nvim",
+    dependencies = {
+      "echasnovski/mini.pick",
+    },
+    event = "VeryLazy",
+  },
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' }
+}
 }
