@@ -55,17 +55,37 @@ end
             vim.keymap.set('i', '<c-,>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true, silent = true })
             vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true, silent = true })
         end
-  },
-  {
-    -- Handle dotnet packages and references
-    "JesperLundberg/projektgunnar.nvim",
-    dependencies = {
-      "echasnovski/mini.pick",
     },
-    event = "VeryLazy",
-  },
-  {
-    'nvim-lualine/lualine.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' }
-}
+    {
+        -- Handle dotnet packages and references
+        "JesperLundberg/projektgunnar.nvim",
+        dependencies = {
+            "echasnovski/mini.pick",
+        },
+        event = "VeryLazy",
+    },
+    {
+        'nvim-lualine/lualine.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' }
+    },
+    {
+        "kdheepak/lazygit.nvim",
+        cmd = {
+            "LazyGit",
+            "LazyGitConfig",
+            "LazyGitCurrentFile",
+            "LazyGitFilter",
+            "LazyGitFilterCurrentFile",
+        },
+        -- optional for floating window border decoration
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+        },
+        -- setting the keybinding for LazyGit with 'keys' is recommended in
+        -- order to load the plugin when the command is run for the first time
+        keys = {
+            { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
+        }
+    }
+    --"whynothugo/lsp_lines.nvim"
 }
